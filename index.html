@@ -919,14 +919,16 @@
 
     .jhula-stage {
       position: relative;
-      height: 380px;
+      height: 400px;
       margin-block: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      perspective: 800px;
+      perspective: 900px;
+      perspective-origin: center 30%;
       user-select: none;
+      transform-style: preserve-3d;
     }
 
     .jhula-frame-top {
@@ -938,37 +940,50 @@
       box-shadow: 0 4px 15px rgba(255, 183, 3, 0.4);
       position: relative;
       z-index: 5;
+      display: flex;
+      justify-content: center;
+      transform-style: preserve-3d;
     }
 
+    .frame-anchor {
+      position: absolute;
+      bottom: -6px;
+      width: 14px;
+      height: 14px;
+      background: #FFE885;
+      border: 2px solid #85610d;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      z-index: 6;
+    }
+    .frame-anchor-left { left: calc(50% - 120px); transform: translateX(-50%); }
+    .frame-anchor-right { left: calc(50% + 120px); transform: translateX(-50%); }
+
+    .cradle-anchor {
+      position: absolute;
+      top: -7px;
+      width: 14px;
+      height: 14px;
+      background: #FFE885;
+      border: 2px solid #85610d;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      z-index: 6;
+    }
+    .cradle-anchor-left { left: 20px; }
+    .cradle-anchor-right { right: 20px; }
+
     .jhula-pendulum {
-      transform-origin: top center;
-      cursor: grab;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: -6px;
-      transform: translateZ(0);
-      will-change: transform;
-      transition: transform 0.05s ease-out;
-    }
-
-    .jhula-pendulum:active {
-      cursor: grabbing;
-    }
-
-    /* CSS physics keyframe when button is triggered */
-    .jhula-pendulum.is-swinging-css {
-      animation: smoothSwingPhysics 3.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    }
-
-    @keyframes smoothSwingPhysics {
-      0% { transform: rotate(0deg); }
-      15% { transform: rotate(18deg); }
-      35% { transform: rotate(-14deg); }
-      55% { transform: rotate(9deg); }
-      75% { transform: rotate(-5deg); }
-      90% { transform: rotate(2deg); }
-      100% { transform: rotate(0deg); }
+      margin-top: 0;
+      position: relative;
+      width: 100%;
+      user-select: none;
+      touch-action: none;
+      transform-style: preserve-3d;
+      transform-origin: top center;
     }
 
     .jhula-ropes {
@@ -976,6 +991,56 @@
       justify-content: space-between;
       width: 240px;
       height: 170px;
+      transform-origin: top center;
+      transform-style: preserve-3d;
+      position: relative;
+      will-change: transform;
+      transition: transform 0.05s ease-out;
+    }
+
+    /* 3D Depth Floor Shadow */
+    .cradle-depth-shadow {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%) scale(1);
+      width: 220px;
+      height: 22px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 80%);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform 0.1s ease, opacity 0.1s ease;
+      z-index: 1;
+    }
+
+    /* 3D Z-Axis Forward & Backward Swing (Unified Rigid 3D Pendulum - Zero Disconnect) */
+    .jhula-pendulum.is-swinging-css {
+      animation: pendulum3DZSwing 3.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    .jhula-stage.is-swinging .cradle-depth-shadow,
+    .jhula-pendulum.is-swinging-css ~ .cradle-depth-shadow {
+      animation: shadow3DZScale 3.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    @keyframes pendulum3DZSwing {
+      0% { transform: rotateX(0deg); }
+      15% { transform: rotateX(26deg); }  /* Forward towards user */
+      35% { transform: rotateX(-20deg); } /* Backward into screen */
+      55% { transform: rotateX(14deg); }  /* Forward */
+      75% { transform: rotateX(-8deg); }  /* Backward */
+      90% { transform: rotateX(3.5deg); } /* Forward */
+      100% { transform: rotateX(0deg); }  /* Rest */
+    }
+
+    @keyframes shadow3DZScale {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+      15% { transform: translateX(-50%) scale(1.32); opacity: 0.28; } /* forward = larger softer shadow */
+      35% { transform: translateX(-50%) scale(0.74); opacity: 0.78; } /* backward = tighter darker shadow */
+      55% { transform: translateX(-50%) scale(1.18); opacity: 0.35; }
+      75% { transform: translateX(-50%) scale(0.85); opacity: 0.68; }
+      90% { transform: translateX(-50%) scale(1.05); opacity: 0.46; }
+      100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
     }
 
     .rope {
@@ -1012,6 +1077,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      cursor: grab;
+      transform: translate3d(0, 0, 0) rotate(0deg);
+      will-change: transform;
+      transition: transform 0.05s ease-out;
+    }
+
+    .cradle-seat:active {
+      cursor: grabbing;
     }
 
     .cradle-cushion {
@@ -2293,7 +2366,10 @@
 
       <!-- Jhula Interactive Stage -->
       <div class="jhula-stage" id="jhulaStage">
-        <div class="jhula-frame-top"></div>
+        <div class="jhula-frame-top">
+          <div class="frame-anchor frame-anchor-left" title="Fixed String Suspension Anchor"></div>
+          <div class="frame-anchor frame-anchor-right" title="Fixed String Suspension Anchor"></div>
+        </div>
 
         <div class="jhula-pendulum" id="jhulaPendulum">
           <div class="jhula-ropes">
@@ -2302,6 +2378,8 @@
           </div>
           
           <div class="cradle-seat" id="cradleSeat">
+            <div class="cradle-anchor cradle-anchor-left"></div>
+            <div class="cradle-anchor cradle-anchor-right"></div>
             <div class="cradle-cushion">
               <svg class="bal-gopal-avatar" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="50" cy="50" r="42" fill="#005f73" stroke="#FFE885" stroke-width="2"/>
@@ -2325,6 +2403,7 @@
             </div>
           </div>
         </div>
+        <div class="cradle-depth-shadow" id="cradleDepthShadow"></div>
       </div>
 
       <!-- Controls -->
@@ -3124,8 +3203,12 @@
         });
       }
 
-      // 4. INTERACTIVE JHULA SEVA (Silky Hardware-Accelerated Animation)
+      // 4. INTERACTIVE JHULA SEVA (3D Z-Axis Forward & Backward Swing with Fixed Frame Endpoints)
+      const jhulaStage = document.getElementById('jhulaStage');
       const jhulaPendulum = document.getElementById('jhulaPendulum');
+      const jhulaRopes = document.querySelector('.jhula-ropes');
+      const cradleSeat = document.getElementById('cradleSeat');
+      const cradleDepthShadow = document.getElementById('cradleDepthShadow');
       const swingOnceBtn = document.getElementById('swingOnceBtn');
       const flowerShowerBtn = document.getElementById('flowerShowerBtn');
       const templeBellBtn = document.getElementById('templeBellBtn');
@@ -3137,14 +3220,86 @@
         sevaCount++;
         sevaCountDisplay.textContent = sevaCount;
 
-        // Use CSS hardware-accelerated class for 120 FPS fluid motion
+        // Clear any inline drag transforms
+        if (jhulaPendulum) jhulaPendulum.style.transform = '';
+        if (jhulaRopes) jhulaRopes.style.transform = '';
+        if (cradleSeat) cradleSeat.style.transform = '';
+        if (cradleDepthShadow) cradleDepthShadow.style.transform = '';
+
+        // Hardware-accelerated 3D Z-axis forward/backward swing
         jhulaPendulum.classList.remove('is-swinging-css');
-        // Force reflow
-        void jhulaPendulum.offsetWidth;
+        if (jhulaStage) jhulaStage.classList.remove('is-swinging');
+        void jhulaPendulum.offsetWidth; // Force reflow
         jhulaPendulum.classList.add('is-swinging-css');
+        if (jhulaStage) jhulaStage.classList.add('is-swinging');
 
         triggerConfetti(['🌸', '🌼', '🌺', '✨'], 28);
-        showToast('Radhe Radhe! Bal Gopal blessed your seva.');
+        showToast('Radhe Radhe! Bal Gopal swings forward & backward in divine bliss.');
+      }
+
+      // 3D Z-Axis Drag-and-Release Physics (Forward & Backward Motion)
+      let isDraggingCradle = false;
+      let startPointerY = 0;
+      let startPointerX = 0;
+      let currentDragZ = 0;
+
+      function startCradleDrag(e) {
+        isDraggingCradle = true;
+        jhulaPendulum.classList.remove('is-swinging-css');
+        if (jhulaStage) jhulaStage.classList.remove('is-swinging');
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+        startPointerY = clientY;
+        startPointerX = clientX;
+        currentDragZ = 0;
+      }
+
+      function moveCradleDrag(e) {
+        if (!isDraggingCradle) return;
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+        const deltaY = clientY - startPointerY;
+        const deltaX = clientX - startPointerX;
+        
+        // Dragging down/forward gives positive Z (towards camera); dragging up/backward gives negative Z (into depth)
+        const combinedDelta = Math.abs(deltaY) > Math.abs(deltaX) ? deltaY : deltaX;
+        currentDragZ = Math.max(-65, Math.min(85, combinedDelta * 1.1));
+        
+        // 3D Z-axis transform on the unified pendulum
+        const rotX = currentDragZ * 0.3;
+        jhulaPendulum.style.transform = `rotateX(${rotX}deg)`;
+        
+        if (cradleDepthShadow) {
+          const shadowScale = 1 + (currentDragZ * 0.0035);
+          const shadowOpacity = Math.max(0.2, Math.min(0.8, 0.5 - currentDragZ * 0.003));
+          cradleDepthShadow.style.transform = `translateX(-50%) scale(${shadowScale})`;
+          cradleDepthShadow.style.opacity = shadowOpacity;
+        }
+      }
+
+      function endCradleDrag() {
+        if (!isDraggingCradle) return;
+        isDraggingCradle = false;
+        if (Math.abs(currentDragZ) > 12) {
+          triggerSwing();
+        } else {
+          // Snap back smoothly to center
+          jhulaPendulum.style.transform = 'rotateX(0deg)';
+          if (cradleDepthShadow) {
+            cradleDepthShadow.style.transform = 'translateX(-50%) scale(1)';
+            cradleDepthShadow.style.opacity = '0.5';
+          }
+        }
+      }
+
+      if (cradleSeat) {
+        cradleSeat.addEventListener('mousedown', startCradleDrag);
+        window.addEventListener('mousemove', moveCradleDrag);
+        window.addEventListener('mouseup', endCradleDrag);
+
+        cradleSeat.addEventListener('touchstart', startCradleDrag, { passive: true });
+        window.addEventListener('touchmove', moveCradleDrag, { passive: true });
+        window.addEventListener('touchend', endCradleDrag);
       }
 
       swingOnceBtn.addEventListener('click', triggerSwing);
