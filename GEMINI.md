@@ -1,6 +1,6 @@
 # Engineering Analysis & Development Process: Krishna Janmashtami 2026
 
-A comprehensive technical analysis of the development lifecycle, commit history, architectural decisions, and physics/audio engineering behind the **Krishna Janmashtami 2026** interactive web application.
+A comprehensive technical analysis of the development lifecycle, architectural evolution, design decisions, and physics/audio engineering behind the **Krishna Janmashtami 2026** interactive web application.
 
 ---
 
@@ -17,60 +17,45 @@ A comprehensive technical analysis of the development lifecycle, commit history,
 
 ---
 
-## 2. Chronological Commit History Analysis
+## 2. Chronological Architectural Evolution
 
-The repository evolved across 7 distinct commits, each addressing a specialized architectural layer—from initial scaffolding to rendering optimization, interactive physics simulation, procedural audio synthesis, production styling, and complete SEO/social metadata.
+The application was engineered iteratively, with each milestone addressing a specialized architectural layer—from initial scaffolding to rendering optimization, interactive physics simulation, procedural audio synthesis, modular styling, and SEO/social metadata.
 
 ```mermaid
 gitGraph
-    commit id: "e08c85d" tag: "v0.1" msg: "Initial commit"
-    commit id: "dbd9e63" tag: "v1.0" msg: "feat: initialize Krishna Janmashtami 2026 landing page"
-    commit id: "0673c05" tag: "v1.1" msg: "perf: improve rendering performance"
-    commit id: "1156f00" tag: "v1.2" msg: "feat: interactive matki-breaking animation"
-    commit id: "582180e" tag: "v1.3" msg: "feat: 3D Z-axis swing physics for Jhula"
-    commit id: "c4be05a" tag: "v1.4" msg: "style: format CSS and HTML consistency"
-    commit id: "4e9128f" tag: "v1.5" msg: "feat: add SVG favicon, Apple Touch Icon, and Open Graph metadata"
+    commit id: "Setup"
+    commit id: "Scaffolding"
+    commit id: "Optimization"
+    commit id: "Matki"
+    commit id: "Jhula"
+    commit id: "Polish"
+    commit id: "Metadata"
 ```
 
 ---
 
-### Commit 1: `e08c85d` — Initial Repository Setup
-- **Author**: Mridul Roy (`39593927+d4rkr0n1n@users.noreply.github.com`)
-- **Date**: Sun Aug 30 04:19:12 2026 +0530
-- **Scope**: Repository initialization with minimal `README.md`.
-- **Key Objective**: Establish the root Git repository for the ParbonStatic Janmashtami project.
+### Core Scaffolding & Application Architecture
+- **Semantic Page Structure**:
+  - Sticky Header with navigation links, logo badge, and ambient audio toggle.
+  - Hero Section featuring animated peacock feather icon, festival badge, and devotional typography.
+  - Divine Legend Section (*Janma Lila*, *Yamuna Crossing*, *Vrindavan Lilas*).
+  - Sacred Traditions Section (*Upavasa/Fasting*, *Nishita Kaal Aarti*, *Abhishek*, *Sankirtan*).
+  - Interactive Jhula Seva cradle stage.
+  - Dahi Handi celebration showcase.
+  - Bhagavad Gita Wisdom card grid with Sanskrit shlokas and translations.
+  - Personalized Festive Greeting Card Generator with real-time live preview.
+  - Responsive Footer with devotional quotes and quick navigation.
+- **Styling & Theming**:
+  - CSS variables for typography (`Cinzel Decorative`, `Playfair Display`, `Poppins`, `Rozha One`).
+  - Glassmorphism UI tokens, gold gradient borders, and multi-layered glow box-shadows.
+- **Core Scripting**:
+  - Web Audio API procedural Bansuri flute synth and temple bell chime.
+  - Dynamic Canvas particle stars background.
+  - Canvas-based HD greeting card export engine.
 
 ---
 
-### Commit 2: `dbd9e63` — Complete Application Architecture & Features
-- **Author**: Mridul Roy (`midlry.mr@gmail.com`)
-- **Date**: Sun Aug 30 04:41:29 2026 +0530
-- **Lines Changed**: `+3107 lines` (`index.html`)
-- **Key Features Implemented**:
-  1. **Semantic Page Structure**:
-     - Sticky Header with navigation links, logo badge, and audio toggle.
-     - Hero Section featuring animated peacock feather icon, festival badge, and devotional typography.
-     - Divine Legend Section (*Janma Lila*, *Yamuna Crossing*, *Vrindavan Lilas*).
-     - Sacred Traditions Section (*Upavasa/Fasting*, *Nishita Kaal Aarti*, *Abhishek*, *Sankirtan*).
-     - Interactive Jhula Seva cradle stage.
-     - Dahi Handi celebration showcase.
-     - Bhagavad Gita Wisdom card grid with Sanskrit shlokas and translations.
-     - Personalized Festive Greeting Card Generator with real-time live preview.
-     - Responsive Footer with devotional quotes and quick navigation.
-  2. **Styling & Theming**:
-     - CSS variables for typography (`Cinzel Decorative`, `Playfair Display`, `Poppins`, `Rozha One`).
-     - Glassmorphism UI tokens, gold gradient borders, and multi-layered glow box-shadows.
-  3. **Core Scripting**:
-     - Web Audio API procedural Bansuri flute synth and temple bell chime.
-     - Dynamic Canvas particle stars background.
-     - Canvas-based HD greeting card export engine.
-
----
-
-### Commit 3: `0673c05` — Performance Optimization & Frame-Rate Stabilization
-- **Author**: Mridul Roy (`midlry.mr@gmail.com`)
-- **Date**: Sun Aug 30 04:52:42 2026 +0530
-- **Lines Changed**: `+279 / -343 lines` (`index.html`)
+### Rendering Performance & Frame-Rate Stabilization
 - **The Problem**: Initial glassmorphism utilized extensive `backdrop-filter: blur(12px)` and un-throttled event loops, causing GPU rasterization bottlenecks, paint thrashing, and frame drops on lower-spec mobile devices.
 - **Architectural Solutions**:
   1. **Elimination of Backdrop Filters**: Replaced GPU-heavy `backdrop-filter` with highly optimized semi-opaque composite backgrounds (`rgba(15, 33, 56, 0.88)`).
@@ -80,71 +65,49 @@ gitGraph
 
 ---
 
-### Commit 4: `1156f00` — Multi-Phase Matki Break Physics & Procedural Audio
-- **Author**: Mridul Roy (`midlry.mr@gmail.com`)
-- **Date**: Sun Aug 30 05:04:03 2026 +0530
-- **Lines Changed**: `+644 / -41 lines` (`index.html`)
-- **Key Enhancements**:
-  1. **Multi-Stage Break Animation Engine**:
-     - **Stage 1 (Strike)**: Diagonally swinging stick animation hitting the pot rim (`.is-striking`).
-     - **Stage 2 (Impact & Stress)**: Pot vibration and flashing zigzag fracture lines (`.is-cracking`).
-     - **Stage 3 (Rupture & Splatter)**: Pot body splits into flying fragments, butter drops burst radially with scale/fade keyframes (`.is-broken`).
-     - **Stage 4 (Respawn)**: Golden aura pulse when hanging a fresh matki (`.is-respawning`).
-  2. **Multi-Oscillator Audio Synthesizer**:
-     - Ceramic impact snap: 240Hz $\to$ 60Hz exponential frequency ramp (triangle wave).
-     - High pop transient: 1400Hz $\to$ 300Hz ramp (sine wave).
-     - Govinda victory chime: 4-note ascending major triad ($E_6 \to G\#_6 \to B_6 \to E_7$) synthesized dynamically.
-  3. **Devotional Engagement Loop**:
-     - Break counter tracking.
-     - Multi-emoji festive confetti burst (`🥛`, `🍯`, `🧈`, `✨`, `💛`, `🌸`, `🦚`, `🌼`).
+### Interactive Dahi Handi Physics & Procedural Audio
+- **Multi-Stage Break Animation Engine**:
+  - **Stage 1 (Strike)**: Diagonally swinging stick animation hitting the pot rim (`.is-striking`).
+  - **Stage 2 (Impact & Stress)**: Pot vibration and flashing zigzag fracture lines (`.is-cracking`).
+  - **Stage 3 (Rupture & Splatter)**: Pot body splits into flying fragments, butter drops burst radially with scale/fade keyframes (`.is-broken`).
+  - **Stage 4 (Respawn)**: Golden aura pulse when hanging a fresh matki (`.is-respawning`).
+- **Multi-Oscillator Audio Synthesizer**:
+  - Ceramic impact snap: 240Hz $\to$ 60Hz exponential frequency ramp (triangle wave).
+  - High pop transient: 1400Hz $\to$ 300Hz ramp (sine wave).
+  - Govinda victory chime: 4-note ascending major triad ($E_6 \to G\#_6 \to B_6 \to E_7$) synthesized dynamically.
+- **Devotional Engagement Loop**:
+  - Break counter tracking.
+  - Multi-emoji festive confetti burst (`🥛`, `🍯`, `🧈`, `✨`, `💛`, `🌸`, `🦚`, `🌼`).
 
 ---
 
-### Commit 5: `582180e` — 3D Z-Axis Perspective Jhula Kinematics & Drag Gestures
-- **Author**: Mridul Roy (`midlry.mr@gmail.com`)
-- **Date**: Sun Aug 30 05:13:19 2026 +0530
-- **Lines Changed**: `+184 / -29 lines` (`index.html`)
+### 3D Z-Axis Perspective Jhula Kinematics & Drag Gestures
 - **The Problem**: Conventional 2D sideways swing animation lacked realism and detached the ropes from the physical top bar of the cradle frame.
 - **Engineering Innovations**:
-  1. **Stationary Anchor Frame & Unified Pendulum**:
-     - Fixed top beam and decorative golden arch remain static.
-     - `.jhula-pendulum` encapsulates both ropes and cradle seat with `transform-origin: 50% 0` (pivoting exactly at the top bar attachment point).
-  2. **3D Z-Axis Perspective**:
-     - Container configured with `perspective: 1100px` and `transform-style: preserve-3d`.
-     - Forward and backward swing kinematics (`rotateX` and `translateZ`), mimicking a realistic forward-swinging swing towards and away from the user.
-  3. **Depth-Aware Shadow Scaling**:
-     - Bottom ellipse shadow dynamically scales (`scale(1.15)`) and fades (`opacity: 0.25`) as the cradle moves forward/backward in Z-space.
-  4. **Interactive Pointer & Touch Drag Physics**:
-     - Unified mouse and touch listeners (`mousedown`, `mousemove`, `mouseup`, `touchstart`, `touchmove`, `touchend`).
-     - Allows users to drag the cradle forward or back with inertia-based release detection or smooth spring snap-back.
+  1. **Stationary Anchor Frame & Unified Pendulum**: Fixed top beam and decorative golden arch remain static. `.jhula-pendulum` encapsulates both ropes and cradle seat with `transform-origin: 50% 0` (pivoting exactly at the top bar attachment point).
+  2. **3D Z-Axis Perspective**: Container configured with `perspective: 1100px` and `transform-style: preserve-3d`. Forward and backward swing kinematics (`rotateX` and `translateZ`), mimicking a realistic forward-swinging swing towards and away from the user.
+  3. **Depth-Aware Shadow Scaling**: Bottom ellipse shadow dynamically scales (`scale(1.15)`) and fades (`opacity: 0.25`) as the cradle moves forward/backward in Z-space.
+  4. **Interactive Pointer & Touch Drag Physics**: Unified mouse and touch listeners (`mousedown`, `mousemove`, `mouseup`, `touchstart`, `touchmove`, `touchend`). Allows users to drag the cradle forward or back with inertia-based release detection or smooth spring snap-back.
 
 ---
 
-### Commit 6: `c4be05a` — Code Organization, Consistency & Production Polish
-- **Author**: Mridul Roy (`midlry.mr@gmail.com`)
-- **Date**: Sun Aug 30 06:01:21 2026 +0530
-- **Lines Changed**: `+880 / -396 lines` (`index.html`)
-- **Focus**:
-  - Organized all CSS rules into structured, numbered modules.
-  - Standardized indentation, media queries, accessibility tags, and attribute formatting across all 4,285 lines of code.
+### Code Modularization & Production Polish
+- **CSS Architecture**: Organized all CSS rules into structured, numbered modules (Typography, Layout, Components, Modals, Animations, Media Queries).
+- **Standards & Polish**: Standardized indentation, media queries, accessibility tags (ARIA labels, focus outlines), and attribute formatting across the entire single-file codebase.
 
 ---
 
-### Commit 7: `4e9128f` — SVG Favicon, Apple Touch Icon & Open Graph (OG) Metadata
-- **Author**: Mridul Roy (`midlry.mr@gmail.com`)
-- **Date**: Sun Aug 30 06:35:00 2026 +0530
-- **Lines Changed**: `+27 lines` (`index.html`)
-- **Key Enhancements**:
-  1. **Self-Contained Vector Favicon & Apple Touch Icon**:
-     - High-DPI inline Data-URI SVG icon (`data:image/svg+xml,...`) showcasing the iconic *Mor Pankh* (peacock feather) and golden *Bansuri* (flute).
-     - Specialized Apple Touch Icon with dark midnight backdrop (`#060d17`) and rounded squircle border radius.
-     - Maintains 100% zero-network-asset architecture with zero external image files.
-  2. **Open Graph & Twitter Card Social Metadata**:
-     - Added comprehensive `og:title`, `og:description`, `og:type`, `og:site_name`, and `og:locale` tags for rich link previews across WhatsApp, Facebook, LinkedIn, and iMessage.
-     - Integrated `twitter:card` (`summary_large_image`), `twitter:title`, and `twitter:description`.
-  3. **PWA & Mobile UI Status Bar Theming**:
-     - Defined `<meta name="theme-color" content="#060d17">` and `msapplication-TileColor`.
-     - Added `apple-mobile-web-app-capable` and `apple-mobile-web-app-status-bar-style` (`black-translucent`) for seamless fullscreen standalone web app presentation.
+### Self-Contained Vector Favicon & Social Graph Architecture
+- **Self-Contained Vector Favicon & Apple Touch Icon**:
+  - High-DPI inline Data-URI SVG icon (`data:image/svg+xml,...`) showcasing the iconic *Mor Pankh* (peacock feather) and golden *Bansuri* (flute).
+  - Specialized Apple Touch Icon with dark midnight backdrop (`#060d17`) and rounded squircle border radius.
+  - Maintains 100% zero-network-asset architecture with zero external image files.
+- **Open Graph & Twitter Card Social Metadata**:
+  - Added comprehensive `og:title`, `og:description`, `og:type`, `og:site_name`, and `og:locale` tags for rich link previews across WhatsApp, Facebook, LinkedIn, and iMessage.
+  - Integrated `twitter:card` (`summary_large_image`), `twitter:title`, and `twitter:description`.
+- **PWA & Mobile UI Status Bar Theming**:
+  - Defined `<meta name="theme-color" content="#060d17">` and `msapplication-TileColor`.
+  - Added `apple-mobile-web-app-capable` and `apple-mobile-web-app-status-bar-style` (`black-translucent`) for seamless fullscreen standalone web app presentation.
 
 ---
 
@@ -288,4 +251,4 @@ To maintain the project's high performance and visual richness, the site impleme
 
 ## 5. Development Summary
 
-The **Krishna Janmashtami 2026** landing page is an exemplary model of high-performance frontend engineering and creative design. By iterating through structured commits—scaffolding, optimizing GPU paint paths, crafting custom physics for cultural traditions (Jhula & Dahi Handi), and engineering client-side audio and canvas generators—the application delivers a rich, immersive festival experience in a lightweight, self-contained package.
+The **Krishna Janmashtami 2026** landing page is an exemplary model of high-performance frontend engineering and creative design. By iterating through structured architectural milestones—scaffolding, optimizing GPU paint paths, crafting custom physics for cultural traditions (Jhula & Dahi Handi), and engineering client-side audio and canvas generators—the application delivers a rich, immersive festival experience in a lightweight, self-contained package.

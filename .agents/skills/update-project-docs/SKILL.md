@@ -15,7 +15,7 @@ This skill defines the standard procedure for keeping the project's documentatio
 
 | Documentation File | Target Audience & Scope | Key Sections to Maintain |
 | :--- | :--- | :--- |
-| **[`GEMINI.md`](file:///d:/Playground/ParbonStatic/Janmashtami2026/GEMINI.md)** | **Engineering Analysis & Architectural Spec**<br>Deep technical documentation, commit history, architectural diagrams, mathematical formulations, Web Audio DSP pipelines, canvas rendering internals, and performance metrics. | • Project Overview & Design Tokens<br>• Chronological Commit History & Git Graph<br>• Subsystem Architecture Diagrams (ASCII / Mermaid)<br>• Mathematical/Physical Kinematic Equations<br>• Procedural Audio Synthesis Parameters<br>• Performance & Quality Metrics Table<br>• Engineering Summary |
+| **[`GEMINI.md`](file:///d:/Playground/ParbonStatic/Janmashtami2026/GEMINI.md)** | **Engineering Analysis & Architectural Spec**<br>Deep technical documentation, chronological architectural evolution, architectural diagrams, mathematical formulations, Web Audio DSP pipelines, canvas rendering internals, and performance metrics. | • Project Overview & Design Tokens<br>• Chronological Architectural Evolution<br>• Subsystem Architecture Diagrams (ASCII / Mermaid)<br>• Mathematical/Physical Kinematic Equations<br>• Procedural Audio Synthesis Parameters<br>• Performance & Quality Metrics Table<br>• Engineering Summary |
 | **[`README.md`](file:///d:/Playground/ParbonStatic/Janmashtami2026/README.md)** | **User & Developer Overview**<br>High-level festival introduction, key interactive feature highlights, running instructions, local server commands, technology stack, and links to engineering deep-dives. | • Overview of `index.html`<br>• Key Features & Interactive Modules list<br>• Running / Local Hosting Instructions<br>• Technology Stack details<br>• Reference link to `GEMINI.md` |
 
 ---
@@ -27,14 +27,14 @@ Execute this workflow **every time**:
 2. An existing feature or physics/audio algorithm is modified, refined, or optimized.
 3. CSS styles, color tokens, animations, or layout structures are updated.
 4. Performance optimizations (e.g., canvas rendering, DOM throttling, paint reduction) are implemented.
-5. A git commit is created or prepared for staging.
+5. A significant architectural or engineering milestone is achieved.
 
 ---
 
 ## 3. Step-by-Step Execution Workflow
 
 ### Step 1: Analyze the Delta (Code Changes)
-1. Inspect the modified files using `git status`, `git diff`, or file review tools.
+1. Inspect the modified files using git status, diff, or file review tools.
 2. Categorize the changes into relevant engineering domains:
    - **DOM / Semantic Structure**: New sections, accessibility tags, dialogs, forms.
    - **CSS / Visual Design**: New CSS variables, animations, 3D perspective rules, responsive breakpoints.
@@ -44,9 +44,11 @@ Execute this workflow **every time**:
    - **Performance**: Event listeners (`requestAnimationFrame`, passive flags), GPU layer promotion, backdrop filter replacements.
 
 ### Step 2: Update [`GEMINI.md`](file:///d:/Playground/ParbonStatic/Janmashtami2026/GEMINI.md)
-1. **Commit History / Change Log**:
-   - If a new commit was made, append a new commit analysis block with the commit hash, author, date, lines changed, and detailed breakdown of features/optimizations.
-   - Update the `mermaid` `gitGraph` to reflect the branch / commit topology.
+1. **Chronological Architectural Evolution**:
+   - Append or update the chronological milestone section with clear technical breakdowns of the new or modified features, physics, audio algorithms, or performance solutions.
+   - Maintain chronological order of architectural changes.
+   - Update the `mermaid` `gitGraph` using clean one-word descriptors (e.g. `commit id: "FeatureName"`) without git hashes or commit metadata.
+   - **No Commit Metadata**: Do NOT include unnecessary git commit metadata (hashes, author names/emails, timestamps, line diff counts, or artificial "Commit N" labels)—focus strictly on actionable architectural details, problems solved, and implementation logic that Gemini needs to build, maintain, and enhance the website.
 2. **Subsystem Architecture**:
    - Update the ASCII / Mermaid subsystem architecture block to include new modules or data flows.
 3. **Deep-Dive Technical Analysis**:
