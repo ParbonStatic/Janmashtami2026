@@ -52,7 +52,8 @@ A visually opulent, high-performance, single-file static web application created
 
 9. **Zero-Request Vector Favicon & Rich Social Graph**:
    - Self-contained high-DPI SVG data URI favicon and Apple Touch Icon featuring the *Mor Pankh* (peacock feather) and golden *Bansuri* (flute).
-   - Rich Open Graph (`og:*`) and Twitter Card metadata for link previews on WhatsApp, Facebook, LinkedIn, and X.
+   - High-resolution $1200 \times 675\text{ px}$ Open Graph / Twitter Card social preview banner ([`og-image.jpg`](file:///d:/Playground/ParbonStatic/Janmashtami2026/og-image.jpg)).
+   - Rich Open Graph (`og:*`) and Twitter Card (`twitter:image`, `summary_large_image`) metadata for rich link previews across WhatsApp, Facebook, LinkedIn, Discord, and X.
    - Mobile browser theme-color (`#060d17`) and fullscreen web app status bar tokens.
 
 ---

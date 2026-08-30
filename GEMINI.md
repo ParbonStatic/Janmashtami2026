@@ -263,10 +263,11 @@ cCtx.drawImage(sprite, -half, -half, p.size, p.size);
 
 ### E. Self-Contained Vector Favicon & Social Graph Architecture
 
-To maintain the project's zero-external-asset principle, both the standard browser favicon and the Apple Touch Icon are encoded directly as high-DPI inline SVG data URIs (`data:image/svg+xml,...`):
+To maintain the project's high performance and visual richness, the site implements full progressive web application and social graph metadata:
 
-- **Favicon & Apple Touch Icon**: Encapsulates a multi-layer gradient *Mor Pankh* (peacock feather) and golden *Bansuri* (flute) with 6-stop linear gradients and precision rotation transforms.
-- **Social Graph Open Graph & Twitter Cards**: Complete `<meta property="og:*">` and `<meta name="twitter:*">` tags for high-engagement link unfurling on platforms like WhatsApp, Twitter/X, and Facebook.
+- **Favicon & Apple Touch Icon**: Encapsulates a multi-layer gradient *Mor Pankh* (peacock feather) and golden *Bansuri* (flute) with 6-stop linear gradients and precision rotation transforms directly encoded as zero-latency inline SVG data URIs (`data:image/svg+xml,...`).
+- **Open Graph & Twitter Card Social Banners**: Dedicated high-resolution $1200 \times 675\text{ px}$ banner [`og-image.jpg`](file:///d:/Playground/ParbonStatic/Janmashtami2026/og-image.jpg) featuring the celestial midnight sky, golden flutes, peacock feathers, and divine lotus motifs.
+- **Social Graph Open Graph & Twitter Cards**: Complete `<meta property="og:*">` (`og:image`, `og:image:type`, `og:image:width`, `og:image:height`, `og:image:alt`, `og:title`, `og:description`, `og:site_name`, `og:locale`) and `<meta name="twitter:*">` (`twitter:card: summary_large_image`, `twitter:image`, `twitter:title`, `twitter:description`) tags for high-engagement link unfurling on platforms like WhatsApp, Twitter/X, LinkedIn, Discord, and Facebook.
 - **Progressive Web App / Mobile Status Bar Theming**: Integrated `<meta name="theme-color" content="#060d17">`, `apple-mobile-web-app-capable`, and `apple-mobile-web-app-status-bar-style` for seamless mobile browser frame integration.
 
 ---
