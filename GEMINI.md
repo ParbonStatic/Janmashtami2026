@@ -19,7 +19,7 @@ A comprehensive technical analysis of the development lifecycle, commit history,
 
 ## 2. Chronological Commit History Analysis
 
-The repository evolved across 6 distinct commits, each addressing a specialized architectural layer—from initial scaffolding to rendering optimization, interactive physics simulation, procedural audio synthesis, and production styling.
+The repository evolved across 7 distinct commits, each addressing a specialized architectural layer—from initial scaffolding to rendering optimization, interactive physics simulation, procedural audio synthesis, production styling, and complete SEO/social metadata.
 
 ```mermaid
 gitGraph
@@ -29,6 +29,7 @@ gitGraph
     commit id: "1156f00" tag: "v1.2" msg: "feat: interactive matki-breaking animation"
     commit id: "582180e" tag: "v1.3" msg: "feat: 3D Z-axis swing physics for Jhula"
     commit id: "c4be05a" tag: "v1.4" msg: "style: format CSS and HTML consistency"
+    commit id: "4e9128f" tag: "v1.5" msg: "feat: add SVG favicon, Apple Touch Icon, and Open Graph metadata"
 ```
 
 ---
@@ -129,6 +130,24 @@ gitGraph
 
 ---
 
+### Commit 7: `4e9128f` — SVG Favicon, Apple Touch Icon & Open Graph (OG) Metadata
+- **Author**: Mridul Roy (`midlry.mr@gmail.com`)
+- **Date**: Sun Aug 30 06:35:00 2026 +0530
+- **Lines Changed**: `+27 lines` (`index.html`)
+- **Key Enhancements**:
+  1. **Self-Contained Vector Favicon & Apple Touch Icon**:
+     - High-DPI inline Data-URI SVG icon (`data:image/svg+xml,...`) showcasing the iconic *Mor Pankh* (peacock feather) and golden *Bansuri* (flute).
+     - Specialized Apple Touch Icon with dark midnight backdrop (`#060d17`) and rounded squircle border radius.
+     - Maintains 100% zero-network-asset architecture with zero external image files.
+  2. **Open Graph & Twitter Card Social Metadata**:
+     - Added comprehensive `og:title`, `og:description`, `og:type`, `og:site_name`, and `og:locale` tags for rich link previews across WhatsApp, Facebook, LinkedIn, and iMessage.
+     - Integrated `twitter:card` (`summary_large_image`), `twitter:title`, and `twitter:description`.
+  3. **PWA & Mobile UI Status Bar Theming**:
+     - Defined `<meta name="theme-color" content="#060d17">` and `msapplication-TileColor`.
+     - Added `apple-mobile-web-app-capable` and `apple-mobile-web-app-status-bar-style` (`black-translucent`) for seamless fullscreen standalone web app presentation.
+
+---
+
 ## 3. Subsystem Architecture & Technical Deep Dive
 
 ```
@@ -144,6 +163,7 @@ gitGraph
 |  +----------v-------------------------v----------------------v------+ |
 |  |                       CORE APPLICATION DOM                       | |
 |  |  [Header & Nav] [Hero & Aura] [Legend Cards] [Traditions Grid]   | |
+|  |  [SEO, Social OG & Twitter Meta] [Self-Contained SVG Favicon]    | |
 |  +----------+-------------------------+----------------------+------+ |
 |             |                         |                      |        |
 |  +----------v----------+   +----------v----------+   +-------v------+ |
@@ -241,6 +261,16 @@ cCtx.drawImage(sprite, -half, -half, p.size, p.size);
 
 ---
 
+### E. Self-Contained Vector Favicon & Social Graph Architecture
+
+To maintain the project's zero-external-asset principle, both the standard browser favicon and the Apple Touch Icon are encoded directly as high-DPI inline SVG data URIs (`data:image/svg+xml,...`):
+
+- **Favicon & Apple Touch Icon**: Encapsulates a multi-layer gradient *Mor Pankh* (peacock feather) and golden *Bansuri* (flute) with 6-stop linear gradients and precision rotation transforms.
+- **Social Graph Open Graph & Twitter Cards**: Complete `<meta property="og:*">` and `<meta name="twitter:*">` tags for high-engagement link unfurling on platforms like WhatsApp, Twitter/X, and Facebook.
+- **Progressive Web App / Mobile Status Bar Theming**: Integrated `<meta name="theme-color" content="#060d17">`, `apple-mobile-web-app-capable`, and `apple-mobile-web-app-status-bar-style` for seamless mobile browser frame integration.
+
+---
+
 ## 4. Key Performance & Quality Metrics
 
 | Dimension | Implementation Detail | Performance Benefit |
@@ -249,6 +279,7 @@ cCtx.drawImage(sprite, -half, -half, p.size, p.size);
 | **Rendering** | Solid/semi-opaque RGBA cards replacing `backdrop-filter: blur()` | Constant 60–120 FPS during scroll |
 | **Animation** | Composite-only properties (`transform`, `opacity`, `filter`) | Handled directly on compositor thread |
 | **Audio** | Pure procedural Web Audio API synthesis | Zero network latency & zero asset loading |
+| **Favicon & SEO** | 100% inline SVG data URIs & full Open Graph meta tags | 0 HTTP roundtrips & instant high-res tab iconography |
 | **Responsive** | Fluid clamp typography (`clamp(1.8rem, 4vw, 3rem)`) + CSS Flex/Grid | Pixel-perfect scaling from 320px to 4K |
 | **Accessibility** | Semantic HTML5, ARIA labels, focus states, high contrast text | Screen-reader and keyboard navigable |
 

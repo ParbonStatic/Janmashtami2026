@@ -50,6 +50,11 @@ A visually opulent, high-performance, single-file static web application created
    - Pre-renders emoji glyphs (`🌸`, `✨`, `🌼`, `💛`, `🌺`, `🦚`, `🥛`, `🍯`, `🧈`) onto 64x64 offscreen canvas sprites at startup.
    - Blits cached GPU textures in $\sim 0.005\text{ ms}$ per frame, eliminating text rasterization lag during celebrations.
 
+9. **Zero-Request Vector Favicon & Rich Social Graph**:
+   - Self-contained high-DPI SVG data URI favicon and Apple Touch Icon featuring the *Mor Pankh* (peacock feather) and golden *Bansuri* (flute).
+   - Rich Open Graph (`og:*`) and Twitter Card metadata for link previews on WhatsApp, Facebook, LinkedIn, and X.
+   - Mobile browser theme-color (`#060d17`) and fullscreen web app status bar tokens.
+
 ---
 
 ## 🚀 Running the Project
