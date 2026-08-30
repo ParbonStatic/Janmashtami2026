@@ -47,7 +47,7 @@ Execute this workflow **every time**:
 1. **Chronological Architectural Evolution**:
    - Append or update the chronological milestone section with clear technical breakdowns of the new or modified features, physics, audio algorithms, or performance solutions.
    - Maintain chronological order of architectural changes.
-   - Update the `mermaid` `gitGraph` using clean one-word descriptors (e.g. `commit id: "FeatureName"`) without git hashes or commit metadata.
+   - Update the `mermaid` `gitGraph` using clean one-word descriptor IDs and version tags (e.g. `commit id: "FeatureName" tag: "vX.Y"`) without git hashes or author metadata.
    - **No Commit Metadata**: Do NOT include unnecessary git commit metadata (hashes, author names/emails, timestamps, line diff counts, or artificial "Commit N" labels)—focus strictly on actionable architectural details, problems solved, and implementation logic that Gemini needs to build, maintain, and enhance the website.
 2. **Subsystem Architecture**:
    - Update the ASCII / Mermaid subsystem architecture block to include new modules or data flows.

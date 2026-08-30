@@ -23,13 +23,13 @@ The application was engineered iteratively, with each milestone addressing a spe
 
 ```mermaid
 gitGraph
-    commit id: "Setup"
-    commit id: "Scaffolding"
-    commit id: "Optimization"
-    commit id: "Matki"
-    commit id: "Jhula"
-    commit id: "Polish"
-    commit id: "Metadata"
+    commit id: "Setup" tag: "v0.1"
+    commit id: "Scaffolding" tag: "v1.0"
+    commit id: "Optimization" tag: "v1.1"
+    commit id: "Matki" tag: "v1.2"
+    commit id: "Jhula" tag: "v1.3"
+    commit id: "Polish" tag: "v1.4"
+    commit id: "Metadata" tag: "v1.5"
 ```
 
 ---
