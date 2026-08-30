@@ -1,5 +1,7 @@
 # Krishna Janmashtami 2026 — Interactive Tribute Web Application
 
+![Krishna Janmashtami 2026 Banner](og-image.jpg)
+
 A visually opulent, high-performance, single-file static web application created to celebrate the auspicious festival of **Shri Krishna Janmashtami 2026**. Built with pure Semantic HTML5, Vanilla Modern CSS, and Native JavaScript/Web APIs, it delivers a 60–120 FPS responsive experience across mobile, tablet, and desktop devices without any external runtime dependencies.
 
 ---
