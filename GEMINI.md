@@ -74,7 +74,7 @@ gitGraph
 - **Multi-Oscillator Audio Synthesizer**:
   - Ceramic impact snap: 240Hz $\to$ 60Hz exponential frequency ramp (triangle wave).
   - High pop transient: 1400Hz $\to$ 300Hz ramp (sine wave).
-  - Govinda victory chime: 4-note ascending major triad ($E_6 \to G\#_6 \to B_6 \to E_7$) synthesized dynamically.
+  - Govinda victory chime: 4-note ascending major triad ($E_6 \to G\sharp_6 \to B_6 \to E_7$) synthesized dynamically.
 - **Devotional Engagement Loop**:
   - Break counter tracking.
   - Multi-emoji festive confetti burst (`🥛`, `🍯`, `🧈`, `✨`, `💛`, `🌸`, `🦚`, `🌼`).
@@ -180,7 +180,7 @@ $$\theta(t) = \theta_0 \cdot \cos(\omega t) \cdot e^{-\zeta t}$$
 To keep the application entirely self-contained without loading external MP3 audio files, all sound effects are synthesized dynamically using the browser's native `AudioContext`:
 
 1. **Ambient Bansuri Flute**:
-   - Generates pure sine tones filtered through a `lowpass` `BiquadFilterNode` (cutoff 1200Hz) with exponential attack and release envelopes across a traditional Indian Raag pentatonic scale ($D_4, E_4, F\#_4, A_4, B_4, D_5, E_5, F\#_5$).
+   - Generates pure sine tones filtered through a `lowpass` `BiquadFilterNode` (cutoff 1200Hz) with exponential attack and release envelopes across a traditional Indian Raag pentatonic scale ($D_4, E_4, F\sharp_4, A_4, B_4, D_5, E_5, F\sharp_5$).
 2. **Temple Bell**:
    - Synthesizes overlapping frequencies at 1046.5 Hz, 2093.0 Hz, and 3135.96 Hz with decaying amplitude curves to simulate bronze bell resonance.
 3. **Matki Breaking Snap & Govinda Chimes**:

@@ -33,7 +33,7 @@ A visually opulent, high-performance, single-file static web application created
      2. **Stress**: Pot vibrates with flashing glowing fracture lines.
      3. **Rupture**: Terracotta splits apart with radial butter/makhan droplet splatter.
      4. **Respawn**: Auspicious golden aura appears to hang a fresh matki.
-   - Procedural Web Audio sound effects: ceramic impact snap (triangle wave) and Govinda victory chimes ($E_6 \to G\#_6 \to B_6 \to E_7$).
+   - Procedural Web Audio sound effects: ceramic impact snap (triangle wave) and Govinda victory chimes ($E_6 \to G\sharp_6 \to B_6 \to E_7$).
 
 5. **Bhagavad Gita Wisdom Grid**:
    - Curated timeless verses from the *Bhagavad Gita* with original Sanskrit text, phonetic transliteration, and English translation.
